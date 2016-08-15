@@ -20,16 +20,16 @@ class User < ActiveRecord::Base
   end
 
   def remember
-    self.remember_token = User.new_token #remember_tokenにランダムなトークンをセットする
-    update_attribute(:remember_digest, User.digest(remember_token)) #remember_tokenの値をハッシュ化してDBに保存する
+    #remember_tokenにランダムなトークンをセットする
+    #remember_tokenの値を暗号化してDBに保存する
   end
 
   def authenticated_token(remember_token)
-    return false if remember_digest.nil? #SafariとChromeを同時に開いていたケース
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    #SafariとChromeを同時に開いていたケース
+    #remember_digestとremember_tokenが一致するかを検証
   end
 
   def forget
-    update_attribute(:remember_digest, nil)
+    #remember_digestの値をnilにする
   end
 end
