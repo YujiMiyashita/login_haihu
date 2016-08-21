@@ -1,6 +1,6 @@
 module SessionsHelper
   def log_in(user)
-    #セッションメソッドを使ってユーザーのidをセッションに入れる。
+    セッションメソッドを使ってユーザーのidをセッションに入れる。
   end
 
   def remember(user)
@@ -11,8 +11,8 @@ module SessionsHelper
 
   # 現在ログインしているユーザーを返す
   def current_user
-    if #セッションが持続している時
-      #セッションの情報を元にユーザーを@current_userにセットする
+    if セッションが持続している時
+      セッションの情報を元にユーザーを@current_userにセットする
     elsif #セッションが切れたがクッキーにuser_idが残っている時
       #クッキーに残っているuser_idを頼りにfind_byメソッドでユーザーを取り出す。
       #DBにハッシュ化された:remember_digestとCookiesに暗号化された:remember_tokenが一致するかを検証
@@ -22,7 +22,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    #current_userがnilでないことを確かめる。
+    current_userがnilでないことを確かめる。
   end
 
   #remember_digestをDBから削除するとともにCookiesのremember_token, user_idを削除する
@@ -31,8 +31,8 @@ module SessionsHelper
     #DBに保存されているremember_digestの値を削除する
     #クッキーからuser_idの値を削除する
     #クッキーからremember_tokenの値を削除する
-    #セッションを破棄する
-    #@current_userの中身をnilにする
+    セッションを破棄する
+    @current_userの中身をnilにする
   end
 
 end

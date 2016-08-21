@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :name
       t.string :email
-      #password_digestカラムを定義する
+      password_digestカラムを定義する
       #remember_digestカラムを定義する
 
       t.timestamps null: false
