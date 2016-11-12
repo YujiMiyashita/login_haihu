@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     if password_digestに保存されている「暗号化されたパスワード」とログイン画面でユーザーが入力した「暗号化されたパスワード」が一致していたら
       emailとパスワードどちらかが間違っているとfalseを返すようにする。
       log_in(user)
-      #remember(user)
       トップ画面にリダイレクトさせる。
     else
       間違っているのでrenderを使ってログイン画面に戻す。
